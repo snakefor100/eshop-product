@@ -23,3 +23,23 @@ spring:
     min-evictable-idle-time-millis: 3000
     max-wait: 3000
     jmx-enabled: true
+
+
+server:
+  port: 8765
+  tomcat:
+    accesslog:
+      directory: "/tmp/eshop"
+      enabled: true
+      pattern: '%{X-Forwarded-For}i %h %l %u %t "%r" %s %b "%{Referer}i" "%{User-Agent}i" %D'
+      rotatable: true
+      prefix: "eshop"
+      suffix: ".log"
+
+
+mybatis:
+  check-config-location: true
+  typeAliasesPackage: com.junlong.eshop.entity
+  mapperLocations: classpath:mybatis/xml/*.xml
+  config-location: classpath:mybatis/config/mybatis-config.xml
+
